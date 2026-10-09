@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Petyra",
+    "slug": "petyra",
+    "scheme": "petyra",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.petyra.app" },
+    "android": { "package": "com.petyra.app" },
+    "plugins": ["expo-router"]
+  }
+}
