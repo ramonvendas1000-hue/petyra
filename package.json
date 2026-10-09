@@ -1,0 +1,11 @@
+{
+  "name": "petyra",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "dev:web": "pnpm --filter @petyra/web dev",
+    "dev:mobile": "pnpm --filter @petyra/mobile start",
+    "build:web": "pnpm --filter @petyra/web build",
+    "typecheck": "pnpm -r typecheck"
+  }
+}
