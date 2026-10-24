@@ -170,13 +170,13 @@ Tutor agenda e confirma → sinal quando exigido → recepção faz check-in →
 
 ### M16 — Clube de serviços do pet shop
 
-**Escopo:** Pet shop cria planos recorrentes, como quatro banhos/mês, com benefícios e venda pelo app; cobrança pertence ao estabelecimento; serviços sem 8%.
+**Escopo:** Pet shop cria planos mensais de serviços com preço, visitas por ciclo, validade e regras. O tutor escolhe entre aderir ao pacote (ex.: quatro banhos/mês) ou pagar cada atendimento avulso; acompanha cobranças e visitas no app. O clube de serviços do estabelecimento é distinto do Petyra Club. Cobrança pertence ao estabelecimento; serviços sem 8% de comissão de produto.
 
 **Já existia:** Somente documentação.
 
-**Ainda implementar/configurar:** Planos, assinatura, ciclo, franquias, consumo, cancelamento e tratamento de benefícios em produtos.
+**Ainda implementar/configurar:** Planos, PSP recorrente, ciclo, franquias, saldo de visitas, consumo idempotente, política de visitas não usadas, pausa/cancelamento/falha de cobrança e checkout avulso.
 
-**Aceite:** Cada atendimento consome a franquia uma vez; renovação reinicia o ciclo; assinatura de serviços não cobra comissão de produtos.
+**Aceite:** Cada atendimento consome a franquia uma vez; renovação reinicia o ciclo; plano e avulso podem ser usados sem dupla cobrança; tutor vê preço, saldo, validade e cancelamento; serviços não recebem comissão de produto.
 
 ### M17 — Notificações
 
@@ -190,33 +190,33 @@ Tutor agenda e confirma → sinal quando exigido → recepção faz check-in →
 
 ### M18 — Rewards, indicação e avaliações
 
-**Escopo:** Pontos configuráveis por atendimento/compra/indicação convertida/avaliação; recompensas, promoções e solicitação de avaliação após atendimento.
+**Escopo:** Cartão fidelidade simples por pet shop, configurável por atendimento/compra/indicação convertida. Ex.: um carimbo por banho pago e concluído, oito carimbos liberam um banho; tutor vê progresso, recompensa, validade e histórico no perfil do pet. Inclui promoções e solicitação de avaliação após atendimento.
 
 **Já existia:** Somente documentação.
 
-**Ainda implementar/configurar:** Regras, livro de pontos, resgate atômico, antifraude de indicação e avaliação vinculada.
+**Ainda implementar/configurar:** Configuração, ledger, regras, crédito após evento elegível, resgate atômico, validade, estorno, antifraude de indicação e avaliação vinculada.
 
-**Aceite:** Resgate concorrente não gera saldo negativo; estorno compensa pontos; autoindicação não recebe benefício.
+**Aceite:** Tutor entende como ganhar e resgatar; resgate concorrente não gera saldo negativo; estorno compensa créditos; o pet shop só credita operação concluída; autoindicação não recebe benefício.
 
 ### M19 — Financeiro
 
-**Escopo:** Faturamento, sinais, pendências, serviços/produtos/app, ticket médio, comissões da equipe, receita recuperada e relatórios.
+**Escopo:** Faturamento, sinais, pendências, serviços/produtos/app, ticket médio, comissões da equipe, receita recuperada e relatórios; separar receita recorrente confirmada de receita provável e oportunidades em previsão de 30/60/90 dias.
 
 **Já existia:** Indicadores estáticos e campos monetários no pedido.
 
-**Ainda implementar/configurar:** Conciliação, livro de lançamentos, saldo, filtros, exportação e métricas.
+**Ainda implementar/configurar:** Conciliação, livro de lançamentos, saldo, filtros, exportação, métricas e previsão auditável sem dupla contagem.
 
 **Aceite:** Separar recebido/a receber, taxa Petyra/taxa PSP/comissão de funcionário; devoluções geram compensação rastreável.
 
 ### M20 — Campanhas e recomendações
 
-**Escopo:** Campanhas segmentadas, promoções da loja, recorrência, sugestões de produtos conforme pet/atendimento e pós-venda.
+**Escopo:** Campanhas segmentadas, promoções da loja, sugestões de produtos conforme pet/atendimento e pós-venda; prever renovações, identificar horários livres e clientes próximos do retorno, sugerindo reativação, lembrete de ciclo ou plano mensal.
 
 **Já existia:** Requisitos no blueprint; nenhum motor.
 
-**Ainda implementar/configurar:** Segmentação, campanhas aprovadas, promoções, regras determinísticas e mensuração.
+**Ainda implementar/configurar:** Segmentação, regras de previsão, aprovação, canais, consentimentos/preferências, frequência, mensuração e atribuição sem dupla contagem.
 
-**Aceite:** Somente produtos da loja ativa; recomendações não usam dados de outro pet shop; campanha respeita consentimento e frequência.
+**Aceite:** Receita realizada, confirmada e estimada ficam separadas; recomendações usam somente dados do pet shop ativo; campanha respeita consentimento/frequência e sua conversão tem origem rastreável.
 
 ### M21 — IA e expansão futura
 

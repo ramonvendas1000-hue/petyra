@@ -21,3 +21,12 @@ Os marcos originais de DEVELOPMENT_ROADMAP.md foram preservados. Esta ordem adic
 Todo item deve atualizar SCOPE_MATRIX.json, testes e grafo. Não marcar como pronto apenas porque compila.
 
 Para cada endpoint: contrato de entrada/saída, identidade validada, política de tenant, idempotência quando necessário, erros, teste negativo de acesso, integração real em staging e UI acessível. Implementar verticalmente, sem expor endpoints que retornem sucesso fictício.
+
+## Adição de escopo — recorrência, fidelidade e previsibilidade
+
+- **Plano mensal do pet shop:** concluir B07 com pacotes definidos pelo estabelecimento (serviços, visitas por ciclo, preço e regras), saldo de visitas, ciclo de cobrança, renovação, pausa/cancelamento, falha/estorno e portal do tutor.
+- **Compra avulsa:** concluir B02/B03/B06 para que o tutor também agende e pague por atendimento sem aderir a um plano. O checkout registra se é serviço avulso, visita do plano ou produto.
+- **Cartão fidelidade:** concluir B09 com regra de acúmulo/recompensa configurável por pet shop, carteira visível para tutor, histórico, resgate atômico e reversão por estorno.
+- **Previsibilidade e marketing:** concluir B04/B09/B10 com previsão 30/60/90 dias, receita confirmada separada de oportunidade, horários livres, risco de churn, campanhas sugeridas e mensuração sem duplicidade.
+- **Integração vertical:** começar por serviços e cadastro de tutor/pet; implementar o plano até o pagamento e consumo da visita; depois fidelidade e ações de retenção; validar consentimento, concorrência e isolamento multi-tenant antes de ativar.
+- **Referência funcional:** [RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md](RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md). A tela `/crescimento` é somente protótipo local na branch de feature.

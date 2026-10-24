@@ -114,8 +114,8 @@
         "supabase/migrations/0001_initial.sql",
         "apps/mobile/app/(business)/index.tsx"
       ],
-      "scope": "Retornos, atrasos, clientes em risco/inativos, horários vagos, cancelamentos; mostrar dinheiro potencial da base e receita recuperada.",
-      "pending": "Jobs de detecção, deduplicação, atribuição de recuperação, interface e ações.",
+      "scope": "Retornos, atrasos, clientes em risco/inativos, horários vagos, cancelamentos; receita potencial da base separada da receita realizada; previsibilidade 30/60/90 dias baseada em renovações e agenda.",
+      "pending": "Jobs de detecção, deduplicação, atribuição de recuperação, previsão explicável, interface e ações consentidas.",
       "acceptance": "Potencial estimado não é somado a receita realizada; uma conversão tem origem rastreável e não duplica receita.",
       "statusAfterAudit": "foundation",
       "artifacts": [
@@ -123,7 +123,8 @@
         "docs/ARCHITECTURE.md",
         "docs/IMPLEMENTATION_BACKLOG.md",
         "packages/domain/src/contracts.ts",
-        "supabase/migrations/0003_v1_module_foundations.sql"
+        "supabase/migrations/0003_v1_module_foundations.sql",
+        "docs/RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md"
       ]
     },
     {
@@ -369,8 +370,8 @@
       "baselineEvidence": [
         "docs/PRODUCT_BLUEPRINT.md"
       ],
-      "scope": "Pet shop cria planos recorrentes, como quatro banhos/mês, com benefícios e venda pelo app; cobrança pertence ao estabelecimento; serviços sem 8%.",
-      "pending": "Planos, assinatura, ciclo, franquias, consumo, cancelamento e tratamento de benefícios em produtos.",
+      "scope": "O pet shop cria planos mensais de serviços com preço, visitas por ciclo, regras e recorrência; tutor escolhe entre aderir ou pagar cada visita avulsa. Saldo, consumo, renovação e cancelamento ficam visíveis para os dois lados; planos de serviço são distintos do Petyra Club. Serviços sem comissão de produto.",
+      "pending": "Planos, PSP recorrente, ciclos, franquias, consumo idempotente, política de saldo não usado, cancelamento/pausa/falha de cobrança e checkout avulso.",
       "acceptance": "Cada atendimento consome a franquia uma vez; renovação reinicia o ciclo; assinatura de serviços não cobra comissão de produtos.",
       "statusAfterAudit": "foundation",
       "artifacts": [
@@ -378,7 +379,8 @@
         "docs/ARCHITECTURE.md",
         "docs/IMPLEMENTATION_BACKLOG.md",
         "packages/domain/src/contracts.ts",
-        "supabase/migrations/0003_v1_module_foundations.sql"
+        "supabase/migrations/0003_v1_module_foundations.sql",
+        "docs/RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md"
       ]
     },
     {
@@ -415,8 +417,8 @@
       "baselineEvidence": [
         "docs/PRODUCT_BLUEPRINT.md"
       ],
-      "scope": "Pontos configuráveis por atendimento/compra/indicação convertida/avaliação; recompensas, promoções e solicitação de avaliação após atendimento.",
-      "pending": "Regras, livro de pontos, resgate atômico, antifraude de indicação e avaliação vinculada.",
+      "scope": "Cartão fidelidade curto e visual, configurado por pet shop (ex.: um carimbo por banho pago e concluído; recompensa clara após oito), com progresso, validade e histórico visíveis ao tutor no perfil do pet.",
+      "pending": "Configuração do programa, ledger, regras, crédito somente após evento elegível, resgate atômico, validade, estorno e conexão de recompensa ao agendamento/checkout.",
       "acceptance": "Resgate concorrente não gera saldo negativo; estorno compensa pontos; autoindicação não recebe benefício.",
       "statusAfterAudit": "foundation",
       "artifacts": [
@@ -424,7 +426,8 @@
         "docs/ARCHITECTURE.md",
         "docs/IMPLEMENTATION_BACKLOG.md",
         "packages/domain/src/contracts.ts",
-        "supabase/migrations/0003_v1_module_foundations.sql"
+        "supabase/migrations/0003_v1_module_foundations.sql",
+        "docs/RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md"
       ]
     },
     {
@@ -439,8 +442,8 @@
         "apps/web/app/(dashboard)/page.tsx",
         "supabase/migrations/0001_initial.sql"
       ],
-      "scope": "Faturamento, sinais, pendências, serviços/produtos/app, ticket médio, comissões da equipe, receita recuperada e relatórios.",
-      "pending": "Conciliação, livro de lançamentos, saldo, filtros, exportação e métricas.",
+      "scope": "Faturamento, sinais, pendências, serviços/produtos/app, ticket médio, comissões da equipe, receita recuperada e relatórios; mostrar receita recorrente confirmada e receita provável em linhas separadas.",
+      "pending": "Conciliação, ledger, saldo, filtros, exportação, métricas e previsão auditável 30/60/90 dias que não conte receita duplicada.",
       "acceptance": "Separar recebido/a receber, taxa Petyra/taxa PSP/comissão de funcionário; devoluções geram compensação rastreável.",
       "statusAfterAudit": "foundation",
       "artifacts": [
@@ -448,7 +451,8 @@
         "docs/ARCHITECTURE.md",
         "docs/IMPLEMENTATION_BACKLOG.md",
         "packages/domain/src/contracts.ts",
-        "supabase/migrations/0003_v1_module_foundations.sql"
+        "supabase/migrations/0003_v1_module_foundations.sql",
+        "docs/RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md"
       ]
     },
     {
@@ -462,8 +466,8 @@
       "baselineEvidence": [
         "docs/PRODUCT_BLUEPRINT.md"
       ],
-      "scope": "Campanhas segmentadas, promoções da loja, recorrência, sugestões de produtos conforme pet/atendimento e pós-venda.",
-      "pending": "Segmentação, campanhas aprovadas, promoções, regras determinísticas e mensuração.",
+      "scope": "Campanhas segmentadas, promoções da loja, recorrência, sugestões de produtos conforme pet/atendimento e pós-venda; ações de reativação, lembrete de renovação e oferta de plano ligadas a horários e segmentos elegíveis.",
+      "pending": "Segmentação, regras, aprovação, canais, consentimentos/preferências, frequência, mensuração e atribuição sem dupla contagem.",
       "acceptance": "Somente produtos da loja ativa; recomendações não usam dados de outro pet shop; campanha respeita consentimento e frequência.",
       "statusAfterAudit": "foundation",
       "artifacts": [
@@ -471,7 +475,8 @@
         "docs/ARCHITECTURE.md",
         "docs/IMPLEMENTATION_BACKLOG.md",
         "packages/domain/src/contracts.ts",
-        "supabase/migrations/0003_v1_module_foundations.sql"
+        "supabase/migrations/0003_v1_module_foundations.sql",
+        "docs/RECORRENCIA_FIDELIDADE_PREVISIBILIDADE.md"
       ]
     },
     {
