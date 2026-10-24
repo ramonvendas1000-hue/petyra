@@ -1,11 +1,13 @@
-const items = ['Início', 'Agenda', 'Clientes', 'Pets', 'Loja', 'Oportunidades', 'Financeiro', 'Equipe', 'Relatórios'];
+const items = ['Início', 'Agenda', 'Clientes', 'Pets', 'Loja', 'Oportunidades', 'Crescimento', 'Financeiro', 'Equipe', 'Relatórios'];
 
 export function Sidebar() {
   return (
     <aside style={{width:260, minHeight:'100vh', background:'#171A3A', color:'#fff', padding:24, display:'flex', flexDirection:'column', gap:24}}>
       <div style={{fontSize:26, fontWeight:900}}>🐾 Petyra</div>
       <nav style={{display:'grid', gap:8}}>
-        {items.map((item, i) => (
+        {items.map((item, i) => item === 'Crescimento' ? (
+          <a key={item} href="/crescimento" style={{border:0, textAlign:'left', padding:'12px 14px', borderRadius:12, color:'#fff', background:'#6D4DFF', cursor:'pointer', fontWeight:800}}>✦ {item}</a>
+        ) : (
           <button key={item} style={{border:0, textAlign:'left', padding:'12px 14px', borderRadius:12, color:'#fff', background:i===0?'#6D4DFF':'transparent', cursor:'pointer'}}>{item}</button>
         ))}
       </nav>
