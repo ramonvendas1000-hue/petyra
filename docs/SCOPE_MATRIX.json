@@ -1,0 +1,592 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-24",
+  "baselineCommit": "4b7be8dd910512912bc1f4e72950c387dca04fd0",
+  "notice": "Cobertura documental/estrutural. Nenhum módulo é declarado operacional ponta a ponta.",
+  "modules": [
+    {
+      "id": "M01",
+      "title": "Web, app único e identidade",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Estruturas Next.js/Expo, tema e telas demonstrativas.",
+      "baselineEvidence": [
+        "apps/web/app/(dashboard)/page.tsx",
+        "apps/mobile/app/index.tsx",
+        "packages/shared/src/theme.ts"
+      ],
+      "scope": "Business Web completo; app iOS/Android com Tutor, Dono e Funcionário; alternância quando a pessoa acumula papéis; Roxo Elétrico #6D4DFF; dono acompanha os mesmos módulos em interface adaptada.",
+      "pending": "Sessões reais; navegação dos módulos; layouts responsivos; builds assinadas.",
+      "acceptance": "Web e app exibem o mesmo dado real; nenhum indicador fixo é apresentado como dado de produção.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M02",
+      "title": "Autenticação e multi-tenant",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Clientes Supabase e tabelas com RLS parcial; login visual sem envio.",
+      "baselineEvidence": [
+        "apps/web/app/(auth)/login/page.tsx",
+        "apps/web/lib/supabase/client.ts",
+        "apps/mobile/lib/supabase.ts",
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Login individual, recuperação, onboarding e convites; banco único; isolamento de cada pet shop; tutor vê somente seus pets e dados compartilhados.",
+      "pending": "Configurar Auth, SMTP/links, sessão web/mobile, convites e onboarding transacional.",
+      "acceptance": "Duas organizações e dois tutores não obtêm dados alheios por API, RPC, Storage ou Realtime; trocar conta limpa o cache.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M03",
+      "title": "Equipe, cargos e permissões",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tipos e permissões padrão; vínculo de membros; sem gestão funcional.",
+      "baselineEvidence": [
+        "packages/shared/src/permissions.ts",
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Dono cria funcionários no web; owner, manager, reception, groomer, veterinarian e custom; permissões personalizadas; equipe acompanha agenda, produtividade, metas e comissões.",
+      "pending": "Telas, convite/aceite, desativação, escopo por profissional, cálculo de produtividade e comissões.",
+      "acceptance": "Funcionário desativado perde acesso; permissão negada prevalece sobre padrão; funcionário não eleva o próprio cargo.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M04",
+      "title": "Tutores, pets, histórico e CRM",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabelas tutors/pets e crm_opportunities; sem CRUD ou CRM funcional.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Cadastro, tags, tarefas, histórico; pipeline Novo contato → Primeiro agendamento → Ativo → Próximo retorno → Atrasado → Em risco → Inativo → Recuperado; frequência média, ticket, LTV e último atendimento.",
+      "pending": "CRUD, segmentação, critérios de risco e consultas de métricas.",
+      "acceptance": "Receitas usam pagamentos conciliados; frequência usa atendimentos concluídos; cancelados não contam como visitas; segmentos são explicáveis.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M05",
+      "title": "Central de Oportunidades",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabela básica; métricas de exemplo na interface.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql",
+        "apps/mobile/app/(business)/index.tsx"
+      ],
+      "scope": "Retornos, atrasos, clientes em risco/inativos, horários vagos, cancelamentos; mostrar dinheiro potencial da base e receita recuperada.",
+      "pending": "Jobs de detecção, deduplicação, atribuição de recuperação, interface e ações.",
+      "acceptance": "Potencial estimado não é somado a receita realizada; uma conversão tem origem rastreável e não duplica receita.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M06",
+      "title": "Agenda, sinais e lista de espera",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Appointments com profissional/data/sinal; nenhum fluxo interativo.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Agenda por profissional, agendamento pelo tutor, confirmação/reagendamento, lembretes, sinal, prevenção de no-show, lista de espera e preenchimento de cancelamentos.",
+      "pending": "Disponibilidade, duração, fusos, prevenção de sobreposição, aceite de ofertas e política de cancelamento.",
+      "acceptance": "Duas reservas simultâneas não ocupam a mesma vaga; oferta da lista expira; cancelamento devolve disponibilidade uma vez.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M07",
+      "title": "Jornada ao vivo",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Enums e appointment_events; telas não conectadas.",
+      "baselineEvidence": [
+        "packages/shared/src/types.ts",
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Agendamento → confirmação/sinal → check-in → foto antes → banho → secagem → tosa → finalização → foto depois → pronto → saldo → retirada → avaliação/retorno; push nas etapas pertinentes.",
+      "pending": "Persistir eventos versionados; validar serviço/checklist; sincronizar e notificar.",
+      "acceptance": "Cada transição tem autor/horário; repetição de evento não duplica push; histórico não reabre atendimento encerrado.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M08",
+      "title": "Fotos antes/depois e histórico visual",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabela pet_photos e flag visible_to_tutor.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Funcionário fotografa no app; vínculo pet/atendimento; before/after; galeria cronológica; observações internas separadas das compartilhadas.",
+      "pending": "Câmera, upload, buckets privados, limites, validação de mídia e URLs temporárias.",
+      "acceptance": "Tutor vê só mídia autorizada de seus pets; revogação impede novas URLs; foto não aparece em outro atendimento ou pet shop.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M09",
+      "title": "PetStyle 3D",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabela pet_styles com JSON livre; nenhum modelo/renderizador.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql",
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "Modelo 3D, cabeça/orelhas/focinho/peito/corpo/patas/cauda; comprimento, máquina/pente/tesoura, observações, referência; salvar/repetir; tutor seleciona/confirma.",
+      "pending": "Assets 3D licenciados, renderizador web/mobile, editor, versionamento e confirmação.",
+      "acceptance": "Mesmo estilo e versão em web/app; regiões persistem; repetir cria nova versão; confirmação fica registrada.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M10",
+      "title": "Documentos, vacinas e passaporte",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabela pet_documents; dados básicos de peso/microchip.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Vacinas, exames, receitas, medicamentos, peso, alergias, microchip e passaporte digital; armazenamento/histórico ampliados no Club.",
+      "pending": "Upload privado, dados estruturados, vencimentos, gráficos, quotas e compartilhamento familiar.",
+      "acceptance": "Documento interno não fica público; lembrete respeita data e preferências; recursos básicos gratuitos não viram pagos por engano.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M11",
+      "title": "Petyra ID",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Somente intenção no blueprint.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "QR de perda/emergência com dados escolhidos pelo tutor e aviso de escaneamento.",
+      "pending": "Geração/rotação de token, endpoint público restrito, consentimento, rate limit e aviso deduplicado.",
+      "acceptance": "QR não expõe pet_id como autorização; token revogado deixa de funcionar; nenhum documento clínico é publicado automaticamente.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M12",
+      "title": "Loja privada",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabela products e política baseada no vínculo por pet.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Loja própria por estabelecimento; sem marketplace/vitrine concorrencial; produtos, fotos, preços e estoque; tutor só vê o pet shop ao qual está vinculado.",
+      "pending": "Catálogo, seleção de vínculo ativo, administração, disponibilidade e retirada.",
+      "acceptance": "Vínculo inativo perde catálogo; URL/ID manipulado não acessa outra loja; custo interno não é retornado ao tutor.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M13",
+      "title": "Estoque sincronizado",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Apenas products.stock_quantity; sem movimentação/reserva.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "SKU, categoria, custo, preço, quantidade, mínimo, foto/status; estoque web/app/loja/balcão; baixa, retorno e ajuste.",
+      "pending": "Interface de catálogo, transações atômicas, reserva com TTL e reconciliação; categoria e estoque mínimo já têm colunas na fundação.",
+      "acceptance": "Última unidade só é vendida uma vez; pagamento duplicado não baixa novamente; expiração/cancelamento libera reserva.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M14",
+      "title": "Carrinho, checkout e split",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Orders/order_items com campos de taxa, sem cálculo ou gateway.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Carrinho com serviços e produtos; retirada junto do pet; 8% somente em produtos vendidos pelo app; 0% serviços; PSP divide automaticamente; taxas do PSP separadas.",
+      "pending": "Adaptador PSP, checkout web/app, confirmação por webhook, estoque transacional, estorno e homologação.",
+      "acceptance": "Serviço R$100 + 3 produtos de R$50 gera taxa Petyra R$12; serviço sozinho e venda balcão não geram 8%; conciliação fecha centavos.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/commerce.ts",
+        "packages/domain/test/rules.test.mjs"
+      ]
+    },
+    {
+      "id": "M15",
+      "title": "Pagamentos, sinal e saldo",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Somente valores de sinal e pedido, sem pagamentos persistidos.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Pix/cartão; sem sinal, 10/20/30/50% ou integral; saldo depois; financeiro automático.",
+      "pending": "Escolher PSP, KYC/recebedores, tokenização hospedada, webhooks assinados, tentativas, reembolso e disputa.",
+      "acceptance": "Pedido só é pago após confirmação confiável; sinal não quita o total; duplicata/fora de ordem não duplica receita ou repasse.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/commerce.ts",
+        "packages/domain/test/rules.test.mjs"
+      ]
+    },
+    {
+      "id": "M16",
+      "title": "Clube de serviços do pet shop",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Somente documentação.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "Pet shop cria planos recorrentes, como quatro banhos/mês, com benefícios e venda pelo app; cobrança pertence ao estabelecimento; serviços sem 8%.",
+      "pending": "Planos, assinatura, ciclo, franquias, consumo, cancelamento e tratamento de benefícios em produtos.",
+      "acceptance": "Cada atendimento consome a franquia uma vez; renovação reinicia o ciclo; assinatura de serviços não cobra comissão de produtos.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M17",
+      "title": "Notificações",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Tabela notifications; sem transporte, tokens ou fila.",
+      "baselineEvidence": [
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Push e WhatsApp conforme necessidade, e-mail quando útil; confirmação, lembrete, jornada, pet/pedido pronto, retorno, vacinas, campanhas, pagamento, trial/renovação.",
+      "pending": "APNs/FCM/Expo, WhatsApp, e-mail, consentimento, preferências, retry, recibos e tokens inválidos.",
+      "acceptance": "Evento idempotente por destinatário/canal; ausência de consentimento bloqueia campanha; falha externa não perde evento.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M18",
+      "title": "Rewards, indicação e avaliações",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Somente documentação.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "Pontos configuráveis por atendimento/compra/indicação convertida/avaliação; recompensas, promoções e solicitação de avaliação após atendimento.",
+      "pending": "Regras, livro de pontos, resgate atômico, antifraude de indicação e avaliação vinculada.",
+      "acceptance": "Resgate concorrente não gera saldo negativo; estorno compensa pontos; autoindicação não recebe benefício.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M19",
+      "title": "Financeiro",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Indicadores estáticos e campos monetários no pedido.",
+      "baselineEvidence": [
+        "apps/web/app/(dashboard)/page.tsx",
+        "supabase/migrations/0001_initial.sql"
+      ],
+      "scope": "Faturamento, sinais, pendências, serviços/produtos/app, ticket médio, comissões da equipe, receita recuperada e relatórios.",
+      "pending": "Conciliação, livro de lançamentos, saldo, filtros, exportação e métricas.",
+      "acceptance": "Separar recebido/a receber, taxa Petyra/taxa PSP/comissão de funcionário; devoluções geram compensação rastreável.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M20",
+      "title": "Campanhas e recomendações",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Requisitos no blueprint; nenhum motor.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "Campanhas segmentadas, promoções da loja, recorrência, sugestões de produtos conforme pet/atendimento e pós-venda.",
+      "pending": "Segmentação, campanhas aprovadas, promoções, regras determinísticas e mensuração.",
+      "acceptance": "Somente produtos da loja ativa; recomendações não usam dados de outro pet shop; campanha respeita consentimento e frequência.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M21",
+      "title": "IA e expansão futura",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Citada nos planos e roadmap; sem implementação.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md",
+        "docs/DEVELOPMENT_ROADMAP.md"
+      ],
+      "scope": "Copiloto: quem chamar, explicar queda de receita e propor campanhas/ações; múltiplas unidades futuras.",
+      "pending": "Produto futuro: provedor/modelo, avaliação, acesso mínimo, custos, supervisão humana e políticas de dados.",
+      "acceptance": "Desabilitado até decisão explícita; não prometer IA disponível no Premium; nenhuma campanha/cobrança autônoma sem autorização.",
+      "statusAfterAudit": "future",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/plans.ts"
+      ]
+    },
+    {
+      "id": "M22",
+      "title": "Business: planos, preços e trials",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Preços e propostas no blueprint; sem billing.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "Essencial R$79,90; Pro R$149,90 cumulativo; Premium R$249,90 cumulativo; pagamento cadastrado, renovação e avisos; Pro 30 dias, Premium 30 dias + 50% no primeiro mês foram discutidos.",
+      "pending": "Aprovar ofertas/datas/limites, criar preços no PSP, consentimento, mudança de plano e cancelamento.",
+      "acceptance": "Preço e primeira cobrança claramente exibidos; desconto só no primeiro mês pago; propostas não ativam cobrança automaticamente.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/plans.ts"
+      ]
+    },
+    {
+      "id": "M23",
+      "title": "Tutor gratuito e Petyra Club",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Benefícios/trial documentados, preço final ausente.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md"
+      ],
+      "scope": "App básico gratuito para agenda, confirmações, notificações, pagamentos, loja e pets; Club opcional com documentos/gastos/histórico/ID/benefícios; candidatos R$9,90/R$19,90; camada futura ~R$49,90.",
+      "pending": "Decidir preço, quotas, benefícios por nível, billing digital e políticas das lojas; trial proposto de 30 dias.",
+      "acceptance": "Recusar Club mantém núcleo gratuito; cancelamento impede próxima renovação; lembretes precedem cobrança.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/plans.ts"
+      ]
+    },
+    {
+      "id": "M24",
+      "title": "Sincronização e infraestrutura",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Mesmo fornecedor Supabase, clientes ainda desconectados.",
+      "baselineEvidence": [
+        "apps/web/lib/supabase/client.ts",
+        "apps/mobile/lib/supabase.ts"
+      ],
+      "scope": "Backend/banco únicos, quase tempo real; ambiente de staging separado; web/app consistentes.",
+      "pending": "API, RLS por operação, Realtime, cache por tenant, retomada offline, Storage, backups e observabilidade.",
+      "acceptance": "Reconnect recupera eventos perdidos; eventos não são fonte de verdade de pagamento; restauração de backup comprovada.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "packages/domain/src/contracts.ts",
+        "supabase/migrations/0003_v1_module_foundations.sql"
+      ]
+    },
+    {
+      "id": "M25",
+      "title": "Lançamento completo",
+      "source": [
+        "conversation_consolidated_summary",
+        "repository_blueprint"
+      ],
+      "baseline": "Gate e roadmap existentes.",
+      "baselineEvidence": [
+        "docs/PRODUCT_BLUEPRINT.md",
+        "docs/DEVELOPMENT_ROADMAP.md"
+      ],
+      "scope": "Não lançar pela metade: módulos V1 integrados, testados; web no ar e app aprovado App Store/Google Play; cada recurso economiza tempo, aumenta receita ou melhora experiência.",
+      "pending": "Executar backlog e critérios de aceite; resolver decisões e dependências; homologar segurança/cobranças; publicar depois de aprovação.",
+      "acceptance": "Nenhum item V1 é considerado entregue só por existir doc/tabela; IA/multiunidade futuras não são vendidas como prontas.",
+      "statusAfterAudit": "foundation",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_BACKLOG.md",
+        "docs/RELEASE_GATE.md"
+      ]
+    }
+  ]
+}

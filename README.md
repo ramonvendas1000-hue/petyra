@@ -2,11 +2,28 @@
 
 Base inicial do ecossistema Petyra.
 
+## Estado verificado em 23/10/2026
+
+O repositório contém protótipos web/app, fundações de banco e regras de domínio; a V1 ainda não está operacional. Dados de tela são demonstrativos. Não há autenticação funcional, PSP, envio de notificações, editor 3D ou app publicado configurados.
+
+- [Documentação mestre de todo o escopo](docs/MASTER_SPEC.md)
+- [Auditoria: o que existia, o que foi acrescentado e pendências](docs/audit/AUDIT_REPORT.md)
+- [Matriz de 25 módulos e critérios de aceite](docs/SCOPE_MATRIX.json)
+- [Arquitetura e contratos](docs/ARCHITECTURE.md)
+- [Banco e limites das migrations](docs/DATABASE.md)
+- [Preços, trials e regras de cobrança](docs/COMMERCIAL_RULES.md)
+- [Backlog de implementação](docs/IMPLEMENTATION_BACKLOG.md), [decisões abertas](docs/OPEN_DECISIONS.md) e [gate de lançamento](docs/RELEASE_GATE.md)
+- [Configuração e testes](docs/DEVELOPMENT_SETUP.md), [integrações externas](docs/EXTERNAL_INTEGRATIONS.md)
+- [Entrar pelo grafo de conhecimento](graphify-out/wiki/index.md)
+
+`pnpm check` valida regras, migrations, tipos e rastreabilidade. Esses checks não certificam a V1 pronta. Nenhum segredo foi incluído e nenhuma migration foi aplicada a produção.
+
 ## Estrutura
 
 - `apps/web` — Petyra Business Web (Next.js)
 - `apps/mobile` — app único Petyra para Tutor, Proprietário e Funcionários (Expo/React Native)
 - `packages/shared` — tema, tipos e permissões compartilhadas
+- `packages/domain` — regras de checkout/jornada/planos, contratos e interfaces de integração
 - `supabase/migrations` — modelo de dados e segurança multi-tenant
 
 ## Identidade

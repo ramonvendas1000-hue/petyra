@@ -1,0 +1,168 @@
+{
+  "repository": "ramonvendas1000-hue/petyra",
+  "branch": "main",
+  "commit": "4b7be8dd910512912bc1f4e72950c387dca04fd0",
+  "tree": "776db006ca3a0161d8396e3b2b4a0e00cdd7ca2c",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha": "0b8ab4e8068210549bdcfed9c1f4ce80b24ba900",
+      "size": 114
+    },
+    {
+      "path": ".gitignore",
+      "sha": "3d0142be503595df0b5efce860a9fefc8491795b",
+      "size": 72
+    },
+    {
+      "path": "README.md",
+      "sha": "786f8b693be42148c14de341ca3a0a2b7e493d72",
+      "size": 1259
+    },
+    {
+      "path": "apps/mobile/app.json",
+      "sha": "3fb63e842e2e5f9a934cebc373dbd797c81d59a7",
+      "size": 338
+    },
+    {
+      "path": "apps/mobile/app/(business)/index.tsx",
+      "sha": "8d69e69c41e80a278769dcfd3c72ce1220a3c62f",
+      "size": 1694
+    },
+    {
+      "path": "apps/mobile/app/(tutor)/index.tsx",
+      "sha": "fb1fb7f8fe8f18bdff34aee68ca3fd19b9d9b3a1",
+      "size": 1897
+    },
+    {
+      "path": "apps/mobile/app/_layout.tsx",
+      "sha": "6b07d58bde5c4768e4a8bfff757829f35bf34e84",
+      "size": 211
+    },
+    {
+      "path": "apps/mobile/app/index.tsx",
+      "sha": "10f47b18364858c7e30d09c60d9347edc546eeb9",
+      "size": 1333
+    },
+    {
+      "path": "apps/mobile/lib/supabase.ts",
+      "sha": "e6157265abe47544d3dc762eec2c91a75e673ace",
+      "size": 182
+    },
+    {
+      "path": "apps/mobile/package.json",
+      "sha": "4c249b0f6d09474d7c137b5e73654650e0b02646",
+      "size": 668
+    },
+    {
+      "path": "apps/mobile/tsconfig.json",
+      "sha": "66f0f5b981d0f23b39756bcffa25eea18245f799",
+      "size": 157
+    },
+    {
+      "path": "apps/web/app/(auth)/login/page.tsx",
+      "sha": "37cdd0105bb5edc9a7eb22ea27bcd13fafcfc0ac",
+      "size": 1183
+    },
+    {
+      "path": "apps/web/app/(dashboard)/layout.tsx",
+      "sha": "47c0ae5fd91ac823938d2eba1305a99457c2a840",
+      "size": 252
+    },
+    {
+      "path": "apps/web/app/(dashboard)/page.tsx",
+      "sha": "d9e662d206e2042d08e174632cea051b15c175cb",
+      "size": 2462
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "sha": "311be11f3fe61e617294a18c92cc3c94db218eb7",
+      "size": 431
+    },
+    {
+      "path": "apps/web/app/layout.tsx",
+      "sha": "7777e84533ddfba9b378ec98df83602e523783e5",
+      "size": 284
+    },
+    {
+      "path": "apps/web/components/sidebar.tsx",
+      "sha": "db89bcb688ef9f4636e8a0574258e4aa54ebe532",
+      "size": 973
+    },
+    {
+      "path": "apps/web/lib/supabase/client.ts",
+      "sha": "e6db2a13b519e0c419b64ce67d7769f998fb36bc",
+      "size": 214
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "sha": "6080addc2d9595896fa4440b16cf51a41bfcfef8",
+      "size": 81
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha": "de6c43c26cd9fc361b1fd096411319b08747c06b",
+      "size": 556
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "sha": "8e05f0b10bf3e8aad266c108e4a88a2fcb701ccd",
+      "size": 505
+    },
+    {
+      "path": "docs/DEVELOPMENT_ROADMAP.md",
+      "sha": "77b142b64eafa44a09d26cd5609c25e5d106d802",
+      "size": 1361
+    },
+    {
+      "path": "docs/PRODUCT_BLUEPRINT.md",
+      "sha": "33dcb74f61b2e089a528ee4d9cde749943e6aa2f",
+      "size": 6454
+    },
+    {
+      "path": "package.json",
+      "sha": "e6e4b5ad82f18a8376a12562342b4c1f70f9eab8",
+      "size": 291
+    },
+    {
+      "path": "packages/shared/package.json",
+      "sha": "fe02dfff402b7fd29f0b2e4c3e361c10ab463a9d",
+      "size": 245
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha": "e93ebbe2ff2d03858681e8d4981020f312bd0159",
+      "size": 81
+    },
+    {
+      "path": "packages/shared/src/permissions.ts",
+      "sha": "a9114262636b1c22d2f43a17354cef8f70bcaa7c",
+      "size": 998
+    },
+    {
+      "path": "packages/shared/src/theme.ts",
+      "sha": "5522074b74c1b028610b2b550e128a961196fe18",
+      "size": 343
+    },
+    {
+      "path": "packages/shared/src/types.ts",
+      "sha": "84ae83a95abf9e29ab740e161a1b27eccd23455e",
+      "size": 676
+    },
+    {
+      "path": "packages/shared/tsconfig.json",
+      "sha": "344734057db10337c99e21663a931b6136bb9188",
+      "size": 183
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha": "286cf7f5643db97142c425abe7c8e5d5663f5d65",
+      "size": 36
+    },
+    {
+      "path": "supabase/migrations/0001_initial.sql",
+      "sha": "e662016679ad8fdcfc265cb0e36ddff4b67045c1",
+      "size": 10944
+    }
+  ]
+}

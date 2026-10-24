@@ -7,3 +7,9 @@ dist
 !.env.example
 .DS_Store
 *.log
+*.tsbuildinfo
+coverage/
+graphify-out/.graphify*
+graphify-out/manifest.json
+graphify-out/costs.json
+graphify-out/benchmark.json

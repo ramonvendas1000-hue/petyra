@@ -25,3 +25,22 @@ export const defaultPermissions: Record<BusinessRole, PermissionKey[]> = {
 export function can(role: BusinessRole, permission: PermissionKey) {
   return defaultPermissions[role].includes(permission);
 }
+
+/** UI projection only; SQL/API must verify the actual membership for every operation. */
+export function canWithMembership(
+  membership: {
+    organizationId: string;
+    active: boolean;
+    role: BusinessRole;
+    customPermissions?: readonly PermissionKey[];
+    permissionOverrides?: Partial<Record<PermissionKey, boolean>>;
+  },
+  organizationId: string,
+  permission: PermissionKey,
+): boolean {
+  if (!membership.active || membership.organizationId !== organizationId) return false;
+  if (membership.role === 'owner') return true;
+  const override = membership.permissionOverrides?.[permission];
+  if (override !== undefined) return override;
+  return membership.customPermissions?.includes(permission) === true || can(membership.role, permission);
+}

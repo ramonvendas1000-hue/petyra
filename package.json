@@ -2,10 +2,16 @@
   "name": "petyra",
   "private": true,
   "packageManager": "pnpm@10.15.0",
+  "engines": { "node": ">=22.16.0" },
+  "devDependencies": { "@electric-sql/pglite": "0.5.11" },
   "scripts": {
     "dev:web": "pnpm --filter @petyra/web dev",
     "dev:mobile": "pnpm --filter @petyra/mobile start",
     "build:web": "pnpm --filter @petyra/web build",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "test": "node --experimental-strip-types --test packages/domain/test/*.test.mjs",
+    "test:db": "node --test supabase/tests/*.test.mjs",
+    "audit:coverage": "node scripts/check-coverage.mjs",
+    "check": "pnpm test && pnpm test:db && pnpm typecheck && pnpm audit:coverage"
   }
 }
