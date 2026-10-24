@@ -18,5 +18,8 @@ Nenhum item abaixo foi aprovado automaticamente pela auditoria.
 | D12 | Recorte de IA/multiunidade futuro e eventual ativação de benefícios Premium | Produto; flags desligadas por padrão |
 | D13 | Acesso do mesmo pet a múltiplos estabelecimentos sem compartilhar histórico interno | Produto + arquitetura; base preservada modela pet com organization_id; não migra para histórico global sem decisão |
 | D14 | Campos de estoque mínimo/categoria e regras de promoções/recomendações | Produto + commerce; registrar antes de UI/estoque real |
+| D15 | Planos de serviços do pet shop: regras para visitas não usadas, pausa, falta, cancelamento, reajuste e reembolso | Produto + operação; não ativar cobrança recorrente antes de aprovar regras claras para o tutor |
+| D16 | Cartão fidelidade: acúmulo, validade, recompensa, estorno e escopo do programa | Produto + operação; base proposta é um cartão separado por pet shop |
+| D17 | Previsibilidade e marketing: janelas e critérios de churn/retorno, canais, consentimento, frequência, custos e aprovação de campanhas | Produto + integração; primeira versão pode preparar sugestões para aprovação antes de enviar |
 
 Próximas decisões não bloqueiam salvar o escopo e a estrutura no GitHub; bloqueiam ativar a função correspondente em produção.
